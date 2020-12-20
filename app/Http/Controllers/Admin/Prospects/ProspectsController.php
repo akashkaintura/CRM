@@ -59,7 +59,7 @@ class ProspectsController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.prospects.show');
     }
 
     /**
@@ -82,7 +82,7 @@ class ProspectsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
