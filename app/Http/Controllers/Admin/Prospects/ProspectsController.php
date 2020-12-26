@@ -30,6 +30,11 @@ class ProspectsController extends Controller
         return view('admin.prospects.create');
     }
 
+    public function createContact(Prospect $prospect)
+    {
+        return view('admin.prospects.contact', compact('prospect'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -48,7 +53,7 @@ class ProspectsController extends Controller
             $prospect->update(['profile_image' => $path]);
         }
 
-        return redirect()->route('admin.prospects.dashboard')->with('success', 'New Prospect created');
+        return redirect()->route('admin.prospects.contacts.create', $prospect->id)->with('success', 'New Prospect created');
     }
 
     /**

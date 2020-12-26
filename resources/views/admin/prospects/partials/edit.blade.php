@@ -30,6 +30,9 @@
                 <div class="card-body">
                     @if ($prospect->profile_image)
                     <img src="{{ Storage::url($project->profile_image) }}" alt="">
+                    @else
+                        <img src="/images/user.ong"  style="max-width:100%" alt="">
+                    @endif
                     @endif
                     <hr>
                     <button class="btn btn-outline-primary btn-sm btn-block">Uplaod New Image</button>
@@ -39,45 +42,45 @@
             </div>
         </div>
         <div class="col-sm-8">
+            <div class="card mt-3">
+                <div class="card">
 
-        </div>
-    </div>
-    <div class="card mt-3">
-        <div class="card">
+                    <h5>Edit Personal Details</h5>
+                    <hr>
+                    @if ($errors->count())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all as $message)
+                                    <li>{{ $message }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
 
-            <h5>Edit Personal Details</h5>
-            <hr>
-            @if ($errors->count())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all as $message)
-                            <li>{{ $message }}</li>
-                        @endforeach
-                    </ul>
+                        <form action="{{ route('admin.prospects.update', ['prospect' => $prospect->id]  )}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+
+                            <div class="form-group">
+                                <label for="">Name</label>
+                                <input type="text" class="form-control" name="name" value="{{ $prospect->name }}">
+
+                                <label for="">Email</label>
+                                <input type="email" class="form-control" name="email" value="{{ $prospect->email }}">
+
+                                <label for="">Profile  Image</label>
+                                <input type="file" class="form-control-file" name="profile_image">
+                            </div>
+
+                            <button  class="btn btn-primary float-right">
+                                Update Prospect
+                            </button>
+                        </form>
                 </div>
-                @endif
-
-                <form action="{{ route('admin.prospects.update', ['prospect' => $prospect->id]  )}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
-
-                    <div class="form-group">
-                        <label for="">Name</label>
-                        <input type="text" class="form-control" name="name">
-
-                        <label for="">Email</label>
-                        <input type="email" class="form-control" name="email">
-
-                        <label for="">Profile  Image</label>
-                        <input type="file" class="form-control-file" name="profile_image">
-                    </div>
-
-                    <button  class="btn btn-primary float-right">
-                        Create Prospect
-                    </button>
-                </form>
+            </div>
         </div>
     </div>
+
 
     {{-- update Contact Details --}}
 </div>

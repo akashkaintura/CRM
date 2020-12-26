@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Prospects\ProspectsController;
+use App\Models\Prospect;
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,3 +17,8 @@ Route::post('/', [ProspectsController::class, 'store'])->name('store');
 
 // Update the Profile Image
 Route::put('{prospect}', [ProspectsController::class, 'update'])->where('prospect', '[0-9]+')->name('update');
+
+
+Route::get('{prospect}/contact/create',
+                    [ProspectContactsController::class, 'create'])
+                    ->where('prospects','[0-9]+')->name('contact.create');

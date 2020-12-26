@@ -30,7 +30,7 @@
             </div>
 
 
-            @if ($prospect->count())
+            @if ($prospects->count())
                 {{ $prospects->links() }}
                 @foreach ($prospects as $prospect)
                     @include('admin.prospects.partials.prospect-card', ['prospect' => $prospect])
