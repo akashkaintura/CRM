@@ -18,9 +18,11 @@
                     <button class="btn btn-outline-secondary  btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                       Actions
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                      <li><a class="dropdown-item" href="{{ route('admin.prospects.edit', ['prospect' => $prospect->id]) }}">Edit</a></li>
-                    </ul>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ route('admin.prospects.edit', ['prospect' => $prospect->id]) }}">Edit</a>
+                        <a class="dropdown-item" href="{{ route('admin.prospects.activities.dashboard', ['prospect' => $prospect->id]) }}">View Activity</a>
+
+                    </div>
                   </div>
             </div>
         </div>

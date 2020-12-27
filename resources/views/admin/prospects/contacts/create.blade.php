@@ -24,7 +24,7 @@
         <!-- Card -->
         <div class="card mt-3">
             <div class="card-body">
-                <form action="{{ route('admin.prospects.contacts.store', $prospect->id)}}" method="POST">
+                <form action="{{ route('admin.prospects.contacts.store', $prospect->id) }}" method="POST">
                     @csrf
 
                     {{-- * Phone
@@ -42,7 +42,7 @@
                           Phone (Primary)
                         </label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="Phone">
+                            <input type="text" class="form-control" name="phone">
                         </div>
                     </div>
 
@@ -51,7 +51,7 @@
                           Phone (Mobile)
                         </label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="Phone_Mobile">
+                            <input type="text" class="form-control" name="phone_mobile">
                         </div>
                     </div>
 
@@ -60,7 +60,14 @@
                           Address
                         </label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="Address">
+                            <input type="text" class="form-control" name="address">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="" class="col-md-3">Unit #</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="unit">
                         </div>
                     </div>
 
@@ -69,7 +76,7 @@
                           City
                         </label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="Phone">
+                            <input type="text" class="form-control" name="city">
                         </div>
                     </div>
 
@@ -78,7 +85,7 @@
                           State/Province
                         </label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="State">
+                            <input type="text" class="form-control" name="state">
                         </div>
                     </div>
 
@@ -87,7 +94,7 @@
                           Postal/Zip
                         </label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="Postal">
+                            <input type="text" class="form-control" name="postal_code">
                         </div>
                     </div>
 
@@ -96,9 +103,19 @@
                           Country
                         </label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="Country">
+                            <input type="text" class="form-control" name="country">
                         </div>
                     </div>
+
+                    <div class="form-group row">
+                        <label for="" class="col-md-3">
+                          Additional Notes
+                        </label>
+                        <div class="col-md-9">
+                            <textarea name="notes" id="" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary float-right">Create Contact Details</button>
                 </form>
             </div>
         </div>
