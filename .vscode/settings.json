@@ -3,6 +3,7 @@
         "Autoloaded",
         "encrypter",
         "endsection",
-        "labelledby"
+        "labelledby",
+        "onclick"
     ]
 }
